@@ -2,6 +2,57 @@ import pygame
 import math
 import time
 from Utils import escalar_imagen, blit_rotar_centro, blit_text_center
+pygame.font.init()
+GRASS = escalar_imagen(pygame.image.load("imgs/grass.jpg"), 2.5)
+TRACK = escalar_imagen(pygame.image.load("imgs/track.png"), 0.9)
+TRACK_BORDER = escalar_imagen(pygame.image.load("imgs/track-border.png"), 0.9)
+TRACK_BORDER_MASK = pygame.mask.from_surface(TRACK_BORDER)
+FINISH = pygame.image.load("imgs/finish.png")
+FINISH_POSITION = (130, 250)
+FINISH_MASK = pygame.mask.from_surface(FINISH)
+GREEN_CAR = escalar_imagen(pygame.image.load("imgs/green-car.png"), 0.55)
+RED_CAR =  escalar_imagen(pygame.image.load("imgs/red-car.png"), 0.55)
+GREY_CAR = escalar_imagen(pygame.image.load("imgs/grey-car.png"), 0.55)
+PURPLE_CAR = escalar_imagen(pygame.image.load("imgs/purple-car.png"), 0.55)
+
+WIDTH, HEIGHT = TRACK.get_width(), TRACK.get_height()
+WIN = pygame.display.set_mode((WIDTH, HEIGHT))
+pygame.display.set_caption("Racing game!")
+MAIN_FONT = pygame.font.SysFont("comicsans", 44)
+
+fps = 60
+PATH = [(175, 119), (110, 70), (56, 133), (70, 481), (318, 731), (404, 680), (418, 521), (507, 475), (600, 551), (613, 715), (736, 713),
+        (734, 399), (611, 357), (409, 343), (433, 257), (697, 258), (738, 123), (581, 71), (303, 78), (275, 377), (176, 388), (178, 260)]
+
+class informacionJuego:
+    NIVELES = 10
+
+    def __init__(self, level = 1):
+        self.level = level
+        self.iniciado = False
+        self.nivel_tiempo_inicio = 0
+
+    def siguiente_nivel(self):
+        self.level += 1
+        self.iniciado = False
+
+    def reinicio(self):
+        self.level = 1
+        self.iniciado = False
+        self.nivel_tiempo_inicio = 0
+
+    def juego_terminado(self):
+        return self.level > self.NIVELES
+
+    def iniciarNivel(self):
+        self.iniciado = True
+        self.nivel_tiempo_inicio = time.time()
+
+    def getLevelTime(self):
+        if not self.iniciado:
+            return 0
+        return round(time.time() - self.nivel_tiempo_inicio)
+
 
 def dibujar(win, images, JugadorCarro, ComputadoraCarro):
     for img, pos in images:
