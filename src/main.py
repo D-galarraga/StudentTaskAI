@@ -27,7 +27,7 @@ PATH = [(175, 119), (110, 70), (56, 133), (70, 481), (318, 731), (404, 680), (41
 class informacionJuego:
     NIVELES = 10
 
-    def __init__(self, level = 1):
+    def _init_(self, level = 1):
         self.level = level
         self.iniciado = False
         self.nivel_tiempo_inicio = 0
@@ -52,6 +52,7 @@ class informacionJuego:
         if not self.iniciado:
             return 0
         return round(time.time() - self.nivel_tiempo_inicio)
+
 
 
 def dibujar(win, images, JugadorCarro, ComputadoraCarro):
