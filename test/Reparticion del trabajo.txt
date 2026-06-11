@@ -1,0 +1,28 @@
+Crear carpeta vacia y poner 
+git clone https://github.com/D-galarraga/StudentTaskAI.git
+
+Fijar su correo con 
+git config --global user.email "CORREO GITHUB"
+
+Para crear una rama y moverse poner 
+git checkout -b NOMBRE-RAMA
+
+para enlazar la rama al main
+ git push --set-upstream origin NOMBRE-RAMA
+
+
+Para ver modificaciones poner
+git status 
+
+para preparar los archivos modificados para subir con
+git commit -m "mensaje descriptivo de la modificacion"
+
+Subir cambios a la rama 
+git push
+
+Cuando estén sus cambios subidos poner en la gui de GitHub pull request y lo solicitan para implementar a main
+
+Donovan Galarraga Proaño tu rama la llamarás utils 
+miguel tu rama la llamarás informacion_juego
+Miguel Torres tu rama la llamarás interfaz
+Sebastian tu rama la llamarás movimientos
