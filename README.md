@@ -8,6 +8,7 @@ Integrantes:
 - Miguel Torres Saavedra
 - Rubén Sebastian Mendoza Pulgarin
 - Galarraga Proaño Donovan Joshue
+- Miguel Vargas
 
 Tareas por integrante:
 - Gaibor Encalada Evans Alejandro: Subir imágenes, hacer merge de los pull request e integración de las ramas en el main resolviendo conflictos de compatibilidad.
